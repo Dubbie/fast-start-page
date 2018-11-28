@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Start</title>
+	<link rel="stylesheet" href="./style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="wrapper">
+		<img src="./3.jpg" id="image" class="faded">
+		<div class="container">
+			<div class="col-left">
+				<h1 id="clock" class="loading">00:00</h1>
+				<p id="weather-description" class="loading">-</p>
+				<p id="weather-temp" class="loading">0°C</p>
+			</div>
+			<div class="col-right">
+				<ul class="links-list">
+					<li class="heading">Work</li>
+					<li>
+						<a href="https://rendhu.atlassian.net/">JIRA</a>
+					</li>
+					<li>
+						<a href="https://mail.google.com">Gmail</a>
+					</li>
+					<li>
+						<a href="https://netbank.erstebank.hu/lakossagi">Bank</a>
+					</li>
+					<li>
+						<a href="https://paypal.com">PayPal</a>
+					</li>
+				</ul>
+				<ul class="links-list">
+					<li class="heading">KMS</li>
+					<li>
+						<a href="https://facebook.com">Facebook</a>
+					</li>
+					<li>
+						<a href="https://reddit.com/r/all">Reddit</a>
+					</li>
+					<li>
+						<a href="https://twitch.tv">Twitch</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/feed/subscriptions">YouTube</a>
+					</li>
+				</ul>
+				<ul class="links-list">
+					<li class="heading">PoE</li>
+					<li>
+						<a href="https://www.pathofexile.com/news">News</a>
+					</li>
+					<li>
+						<a href="https://www.pathofexile.com/forum">Forum</a>
+					</li>
+					<li>
+						<a href="https://poe.trade">Trade</a>
+					</li>
+					<li>
+						<a href="https://poe.ninja">Ninja</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var imgEl = document.getElementById('image');
+
+		window.onload = function() {
+			imgEl.classList.remove('faded');
+		}
+	</script>
+	<script src="./clock.js"></script>
+	<script src="./weather.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,700');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	background-color: #111;
+}
+
+.wrapper {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	min-width: 100vh;
+	color: #fff;
+}
+
+.container {
+	display: flex;
+	width: 80%;
+	z-index: 3;
+}
+
+#image {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 27.5%;
+	max-height: 66.66%;
+	max-width: 33.33%;
+	transform: translateY(-45%);
+	opacity: 1;
+	z-index: 2;
+	transition: all 1000ms ease-in-out;
+}
+
+#image.faded {
+	opacity: 0;
+	transform: translateY(-33.33%);
+}
+
+.col-left, .col-right {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	padding: 2.5%;
+}
+
+.col-left {
+	text-align: right;
+}
+
+.col-right {
+	text-align: left;
+}
+
+#clock {
+	font-size: 2.5rem;
+	margin-bottom: 0.5rem;
+	letter-spacing: 2px;
+}
+
+#weather-description {
+	text-transform: capitalize;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+#weather-temp {
+	font-weight: 700;
+}
+
+.links-list {
+	list-style-type: none;
+	margin-bottom: 1rem;
+}
+
+.links-list:last-of-type {
+	margin-bottom: 0;
+}
+
+.links-list .heading {
+	letter-spacing: 1px;
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+
+.links-list a {
+	display: inline-block;
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.links-list a:hover {
+	color: rgba(255, 255, 255, 1);
+}
+
+.loading {
+	background-color: rgba(255, 255, 255, 0.5) !important;
+	background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 100%, rgba(255, 255, 255, 0) 101%);
+	color: rgba(255, 255, 255, 0) !important;
+}
+
+#clock, #weather-description, #weather-temp {
+	background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 0%);
+	transition: all 250ms ease-in-out;
+}
