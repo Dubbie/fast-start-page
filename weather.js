@@ -1,5 +1,5 @@
 var weather = function () {
-	var apiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=Sz%C3%A1zhalombatta&APPID=ee22f9492de64a33cfc087fb36484c8e&units=metric';
+	var apiUrl = 'https://subitest.000webhostapp.com/get_weather.php';
 	var tempEl = document.getElementById('weather-temp');
 	var descEl = document.getElementById('weather-description');
 	var updateInterval = 1000 * 60 * 10 // 10 mins
@@ -11,16 +11,15 @@ var weather = function () {
 		request.open('GET', apiUrl, true);
 
 		// Successfull request
-		request.onload = function() {
+		request.onload = function () {
 			var data = JSON.parse(this.response);
 
-			console.log(data);
-			descEl.textContent = data.weather[0].description;
+			descEl.textContent = data.weather_description;
 
 			if (rounded) {
-				tempEl.textContent = Math.round(data.main.temp) + '°C';
+				tempEl.textContent = Math.round(data.temp) + '°C';
 			} else {
-				tempEl.textContent = data.main.temp + '°C';
+				tempEl.textContent = data.temp + '°C';
 			}
 
 			// Remove Loading stuff
@@ -31,7 +30,7 @@ var weather = function () {
 		}
 
 		// Error with request
-		request.onerror = function() {
+		request.onerror = function () {
 			// Check if the timer is above 5 minutes
 			if (retryTime > 5 * 60) {
 				retryTime = 5;
@@ -39,7 +38,7 @@ var weather = function () {
 
 			// Start a timer to try again later
 			console.log('Error while getting Weather: Retrying in ' + retryTime + ' seconds');
-			setTimeout(function() {
+			setTimeout(function () {
 				update();
 
 				retryTime += retryTime; // Increment the timer
@@ -54,10 +53,10 @@ var weather = function () {
 		apiUrl = apiUrl.replace('http://', 'https://');
 		console.log('Noticed website uses HTTPS, switching out API url to HTTPS version.');
 	}
-		
+
 	// Start the module
 	update();
-	setInterval(function() {
+	setInterval(function () {
 		update();
 	}, updateInterval);
 
