@@ -7,6 +7,11 @@ var weather = function () {
 	var rounded = true;
 
 	function update() {
+		// Check HTTPS
+		if (location.protocol == 'https:') {
+			apiUrl.replace('http://', 'https://');
+		}
+
 		var request = new XMLHttpRequest();
 		request.open('GET', apiUrl, true);
 
