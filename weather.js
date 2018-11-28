@@ -7,11 +7,6 @@ var weather = function () {
 	var rounded = true;
 
 	function update() {
-		// Check HTTPS
-		if (location.protocol == 'https:') {
-			apiUrl.replace('http://', 'https://');
-		}
-
 		var request = new XMLHttpRequest();
 		request.open('GET', apiUrl, true);
 
@@ -54,6 +49,12 @@ var weather = function () {
 		request.send();
 	}
 
+	// Check HTTPS
+	if (location.protocol == 'https:') {
+		apiUrl.replace('http://', 'https://');
+		console.log('Noticed website uses HTTPS, switching out API url to HTTPS version.');
+	}
+		
 	// Start the module
 	update();
 	setInterval(function() {
