@@ -51,7 +51,7 @@ var weather = function () {
 
 	// Check HTTPS
 	if (location.protocol == 'https:') {
-		apiUrl.replace('http://', 'https://');
+		apiUrl = apiUrl.replace('http://', 'https://');
 		console.log('Noticed website uses HTTPS, switching out API url to HTTPS version.');
 	}
 		
