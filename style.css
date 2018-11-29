@@ -120,23 +120,32 @@ body {
 
 /* Responsive stuff */
 @media screen and (max-width: 600px) {
-  .container {
-  	flex-direction: column;
-  }
-
-  .col-left, .col-right {
-  	text-align: center;
-  }
+	.wrapper {
+		align-items: flex-start;
+	}
 
   .col-left {
-  	margin-bottom: 2rem;
-  }
+		text-align: center;
+		margin-top: 20%;
+	}
+
+	.col-right {
+		display: none;
+	}
 
   #image {
-  	max-width: 75%;
+  	max-width: 80%;
   	max-height: 80%;
-  	top: 50%;
-  	left: 50%;
-  	transform: translateX(-50%) translateY(-50%);
-  }
+  	top: 65%;
+  	left: 10%;
+	}
+	
+	#clock {
+		font-size: 5rem;
+		margin-bottom: 1rem;
+	}
+
+	#weather-temp, #weather-description {
+		font-size: 2rem;
+	}
 }
