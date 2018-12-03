@@ -20,6 +20,10 @@ body {
 	background-color: $bg-color;
 }
 
+button {
+	font-family: 'Montserrat', sans-serif;
+}
+
 .wrapper {
 	position: relative;
 	display: flex;
@@ -145,6 +149,119 @@ body {
 	&.loading:before {
 		width: 100%;
 		background-color: $fg-color;
+	}
+}
+
+/* Settings */
+.btn {
+	font-weight: 700;
+	background: transparent;
+	color: $bg-color;
+	font-size: 1.5rem;
+	border: 0;
+	padding: 1rem;
+	cursor: pointer;
+
+	&:hover {
+		color: lighten($bg-color, 25%);
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+#btn-settings {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: transparentize($fg-color, 0.75);
+
+	&:hover {
+		color: transparentize($fg-color, 0)
+	}
+}
+
+#btn-settings-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#btn-settings-save {
+	color: green;
+	border-bottom: 3px solid transparent;
+
+	&:hover {
+		border-color: green;
+	}
+}
+
+/* Settings Page itself */
+#settings-page {
+	position: absolute;
+	top: 0;
+	right: 100%;
+	width: 100%;
+	height: 100%;
+	background-color: $fg-color;
+	color: $bg-color;
+	z-index: 4;
+	transition: all 500ms ease-in-out;
+
+	/* Open styling */
+	&.open {
+		right: 0;
+	}
+
+	h1 {
+		margin-bottom: 2rem;
+	}
+
+	.form-heading {
+		margin-bottom: 1.25rem;
+	}
+
+	hr {
+		width: 60%;
+		height: 3px;
+		background-color: darken($fg-color, 5%);
+		margin: 2rem auto;
+		border: 0;
+	}
+
+	.settings {
+		max-width: 600px;
+		margin: 10% auto 0 auto;
+	}
+}
+
+.form-group {
+	margin-bottom: 1rem;
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
+	label {
+		display: block;
+		font-weight: 700;
+		font-size: 0.875rem;
+		margin-bottom: 0.25rem;
+	}
+
+	input.form-control {
+		width: 100%;
+		font-size: 1rem;
+		padding: 0.5rem;
+		background-color: darken($fg-color, 5%);
+		border: 0;
+		border-bottom: 3px solid darken($fg-color, 10%);
+		font-family: 'Montserrat', sans-serif;
+
+		&:active, &:focus {
+			outline: none;
+		}
 	}
 }
 
