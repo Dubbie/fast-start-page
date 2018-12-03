@@ -1,4 +1,4 @@
-var weather = function () {
+var lists = function () {
 	var listEls = document.querySelectorAll('.links-list');
 	var timer = 0;
 	var timerDelay = 250;
