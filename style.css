@@ -1,1 +1,289 @@
-@import"https://fonts.googleapis.com/css?family=Montserrat:500,700";*{box-sizing:border-box;margin:0;padding:0}html{max-width:100vw;max-height:100vh}body{font-family:"Montserrat",sans-serif;font-weight:500;background-color:#111}button{font-family:"Montserrat",sans-serif}.wrapper{position:relative;display:flex;justify-content:center;align-items:center;height:100vh;color:#fff;overflow:hidden}.container{display:flex;width:80%;z-index:3}#image{display:block;position:absolute;top:50%;left:27.5%;max-height:66.66%;max-width:33.33%;transform:translateY(-45%);opacity:1;z-index:2;transition:all 1000ms ease-in-out}#image.faded{opacity:0;transform:translateY(-33.33%)}.col-left,.col-right{display:flex;flex-direction:column;flex-grow:1;padding:2.5%;width:95%}.col-left{text-align:right}.col-right{text-align:left}#clock{font-size:2.5rem;margin-bottom:.5rem;letter-spacing:2px;line-height:1}#weather-description{text-transform:capitalize;color:#bfbfbf;padding-top:.25rem}#weather-temp{font-weight:700;padding-bottom:.25rem}.links-list{display:block;list-style-type:none;margin-bottom:1rem;transform:translateX(0);opacity:1;transition:all 250ms ease-in-out}.links-list.loading{opacity:0;transform:translateX(25%)}.links-list::last-of-type{margin-bottom:0}.links-list .heading{letter-spacing:1px;font-size:1.25rem;font-weight:700}.links-list li{background-color:#111}.links-list li a{display:inline-block;text-decoration:none;color:#ccc}.links-list li a:hover{color:#fff}#clock,#weather-description,#weather-temp{position:relative}#clock:before,#weather-description:before,#weather-temp:before{content:" ";display:block;position:absolute;height:100%;width:0;top:0;right:0;background-color:rgba(255,255,255,0);transition:all 500ms ease-in-out}#clock.loading:before,#weather-description.loading:before,#weather-temp.loading:before{width:100%;background-color:#fff}.btn{font-weight:700;background:transparent;color:#111;font-size:1.5rem;border:0;padding:1rem;cursor:pointer}.btn:hover{color:#515151}.btn:focus{outline:none}#btn-settings{position:absolute;top:1rem;right:1rem;color:rgba(255,255,255,.25);z-index:4}#btn-settings:hover{color:#fff}#btn-settings-close{color:rgba(17,17,17,.5);padding-right:0}#btn-settings-close:hover{color:#111}#btn-settings-save{color:green;border-bottom:3px solid transparent}#btn-settings-save:hover{border-color:green}#settings-page{position:absolute;top:0;right:100%;width:100%;height:100%;background-color:#fff;color:#111;z-index:5;transition:all 500ms ease-in-out}#settings-page.open{right:0}#settings-page h1{padding:1rem 1rem 1rem 0}#settings-page .form-heading{margin-bottom:1.25rem}#settings-page hr{width:60%;height:3px;background-color:#f2f2f2;margin:2rem auto;border:0}#settings-page .settings{max-width:600px;margin:0 auto 0 auto;padding:5%}#settings-page .settings .settings-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem}.form-group{margin-bottom:1rem}.form-group:last-of-type{margin-bottom:0}.form-group label{display:block;font-weight:700;font-size:.875rem;margin-bottom:.25rem}.form-group input.form-control{width:100%;font-size:1rem;padding:.5rem;background-color:#f2f2f2;border:0;border-bottom:3px solid #e6e6e6;font-family:"Montserrat",sans-serif}.form-group input.form-control:active,.form-group input.form-control:focus{outline:none}@media screen and (max-width: 600px){.wrapper{align-items:flex-start}.col-left{text-align:center;margin-top:20%}.col-right{display:none}#image{max-width:80%;max-height:80%;top:65%;left:10%}#clock{font-size:5rem;margin-bottom:1rem}#weather-temp,#weather-description{font-size:2rem}}/*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  background-color: #111111;
+}
+
+button {
+  font-family: "Montserrat", sans-serif;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* min-width: 100vh; */
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  z-index: 3;
+}
+
+#image {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 27.5%;
+  max-height: 66.66%;
+  max-width: 33.33%;
+  transform: translateY(-45%);
+  opacity: 1;
+  z-index: 2;
+  transition: all 1000ms ease-in-out;
+}
+#image.faded {
+  opacity: 0;
+  transform: translateY(-33.33%);
+}
+
+.col-left, .col-right {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 2.5%;
+  width: 95%;
+}
+
+.col-left {
+  text-align: right;
+}
+
+.col-right {
+  text-align: left;
+}
+
+#clock {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+#weather-description {
+  text-transform: capitalize;
+  color: #bfbfbf;
+  padding-top: 0.25rem;
+}
+
+#weather-temp {
+  font-weight: 700;
+  padding-bottom: 0.25rem;
+}
+
+.links-list {
+  display: block;
+  list-style-type: none;
+  margin-bottom: 1rem;
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 250ms ease-in-out;
+}
+.links-list.loading {
+  opacity: 0;
+  transform: translateX(25%);
+}
+.links-list::last-of-type {
+  margin-bottom: 0;
+}
+.links-list .heading {
+  letter-spacing: 1px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.links-list li {
+  background-color: #111111;
+}
+.links-list li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #cccccc;
+}
+.links-list li a:hover {
+  color: #ffffff;
+}
+
+#clock, #weather-description, #weather-temp {
+  position: relative;
+}
+#clock:before, #weather-description:before, #weather-temp:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 0;
+  top: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0);
+  transition: all 500ms ease-in-out;
+}
+#clock.loading:before, #weather-description.loading:before, #weather-temp.loading:before {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/* Settings */
+.btn {
+  font-weight: 700;
+  background: transparent;
+  color: #111111;
+  font-size: 1.5rem;
+  border: 0;
+  padding: 1rem;
+  cursor: pointer;
+}
+.btn:hover {
+  color: #515151;
+}
+.btn:focus {
+  outline: none;
+}
+
+#btn-settings {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgba(255, 255, 255, 0.25);
+  z-index: 4;
+}
+#btn-settings:hover {
+  color: #ffffff;
+}
+
+#btn-settings-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgba(17, 17, 17, 0.5);
+}
+#btn-settings-close:hover {
+  color: #111111;
+}
+
+#btn-settings-save {
+  color: green;
+  border-bottom: 3px solid transparent;
+}
+#btn-settings-save:hover {
+  border-color: green;
+}
+
+/* Settings Page itself */
+#settings-page {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  color: #111111;
+  z-index: 5;
+  transition: all 500ms ease-in-out;
+  /* Open styling */
+}
+#settings-page.open {
+  right: 0;
+}
+#settings-page h1 {
+  padding: 1rem 1rem 1rem 0;
+}
+#settings-page .form-heading {
+  margin-bottom: 1.25rem;
+}
+#settings-page hr {
+  width: 60%;
+  height: 3px;
+  background-color: #f2f2f2;
+  margin: 2rem auto;
+  border: 0;
+}
+#settings-page .settings {
+  max-width: 600px;
+  margin: 0 auto 0 auto;
+  padding: 5%;
+}
+#settings-page .settings .settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group:last-of-type {
+  margin-bottom: 0;
+}
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+.form-group input.form-control {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: #f2f2f2;
+  border: 0;
+  border-bottom: 3px solid #e6e6e6;
+  font-family: "Montserrat", sans-serif;
+}
+.form-group input.form-control:active, .form-group input.form-control:focus {
+  outline: none;
+}
+.form-group input.form-control.has-error {
+  border-bottom-color: #ff3333;
+}
+
+/* Responsive stuff */
+@media screen and (max-width: 600px) {
+  .wrapper {
+    align-items: flex-start;
+  }
+
+  .col-left {
+    text-align: center;
+    margin-top: 20%;
+  }
+
+  .col-right {
+    display: none;
+  }
+
+  #image {
+    max-width: 80%;
+    max-height: 80%;
+    top: 65%;
+    left: 10%;
+  }
+
+  #clock {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  #weather-temp, #weather-description {
+    font-size: 2rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,6 +1,4 @@
 var settings = function () {
-	let bankName = 'Bank';
-	let bankURL = '';
 	let openClass = 'open';
 	let page = document.getElementById('settings-page');
 	let form = document.getElementById('settings-form');
@@ -52,16 +50,35 @@ var settings = function () {
 	}
 
 	function validateForm() {
+		let err = [];
+
 		// Check if they are empty or not
-		if (bankNameInput.value.length < 1 ||
-				bankUrlInput.value.length < 1 ||
-				jiraUrlInput.value.length < 1) {
-			alert('Bad input?');
+		if (bankNameInput.value.length < 1) {
+			bankNameInput.classList.add('has-error');
+			err.push('bankName');
 		}
-		
-		// Update links
-		updateBankLink(bankNameInput.value, bankUrlInput.value);
-		updateJiraLink(jiraUrlInput.value);
+
+		if (bankUrlInput.value.length < 1) {
+			bankUrlInput.classList.add('has-error');
+			err.push('bankUrl');
+		}
+
+		if (jiraUrlInput.value.length < 1) {
+			jiraUrlInput.classList.add('has-error');
+			err.push('jiraUrl');
+		}
+
+		// Do the updating
+		if (!err.indexOf('bankName') != -1 && !err.indexOf('bankUrl') != -1) {
+			updateBankLink(bankNameInput.value, bankUrlInput.value);
+			bankNameInput.classList.remove('has-error');
+			bankUrlInput.classList.remove('has-error');
+		}
+
+		if (!err.indexOf('jiraUrl') != -1) {
+			updateJiraLink(jiraUrlInput.value);
+			jiraUrlInput.classList.remove('has-error');
+		}
 
 		// Save button
 		var oldText = btnSave.textContent;

@@ -179,14 +179,16 @@ button {
 	z-index: 4;
 
 	&:hover {
-		color: transparentize($fg-color, 0)
+		color: $fg-color;
 	}
 }
 
 #btn-settings-close {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
 	color: transparentize($bg-color, 0.5);
-	padding-right: 0;
-
+	
 	&:hover {
 		color: $bg-color;
 	}
@@ -273,6 +275,10 @@ button {
 
 		&:active, &:focus {
 			outline: none;
+		}
+
+		&.has-error {
+			border-bottom-color: lighten(red, 10%);
 		}
 	}
 }
