@@ -9,7 +9,35 @@
 </head>
 
 <body>
+	<div id="settings-page">
+		<div class="settings">
+				<div class="settings-header">
+					<h1>Settings</h1>
+					<button id="btn-settings-close" class="btn">Close</button>
+				</div>
+				<form action="" id="settings-form">
+					<h3 class="form-heading">Work</h3>
+					<div class="form-group">
+						<label for="jira-url">JIRA</label>
+						<input type="text" id="jira-url" name="jira-url" class="form-control" value="" required>
+					</div>
+					<hr>
+					<div class="form-group">
+						<label for="bank-name">Bank name</label>
+						<input type="text" id="bank-name" name="bank-name" class="form-control" value="" required>
+					</div>
+					<div class="form-group">
+						<label for="bank-url">Bank URL</label>
+						<input type="text" id="bank-url" name="bank-url" class="form-control" value="" required>
+					</div>
+					<div class="form-group" style="text-align: center;">
+						<button id="btn-settings-save" type="submit" class="btn">Save</button>
+					</div>
+				</form>
+		</div>
+	</div>
 	<div class="wrapper">
+		<button id="btn-settings" class="btn">Settings</button>
 		<img src="./pic.jpg" id="image" class="faded">
 		<div class="container">
 			<div class="col-left">
@@ -21,13 +49,13 @@
 				<ul class="links-list loading">
 					<li class="heading">Work</li>
 					<li>
-						<a href="https://rendhu.atlassian.net/">JIRA</a>
+						<a id="jira-link" href="#no-jira">JIRA</a>
 					</li>
 					<li>
 						<a href="https://mail.google.com">Gmail</a>
 					</li>
 					<li>
-						<a href="https://netbank.erstebank.hu/lakossagi">Bank</a>
+						<a id="bank-link" href="#no-bank">Bank</a>
 					</li>
 					<li>
 						<a href="https://paypal.com">PayPal</a>
@@ -77,6 +105,7 @@
 	<script src="./clock.js?v=1.0"></script>
 	<script src="./weather.js?v=1.1"></script>
 	<script src="./lists.js?v=1.0"></script>
+	<script src="./settings.js?v=1.0"></script>
 </body>
 
 </html>
