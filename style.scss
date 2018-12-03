@@ -173,9 +173,10 @@ button {
 
 #btn-settings {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 1rem;
+	right: 1rem;
 	color: transparentize($fg-color, 0.75);
+	z-index: 4;
 
 	&:hover {
 		color: transparentize($fg-color, 0)
@@ -183,9 +184,12 @@ button {
 }
 
 #btn-settings-close {
-	position: absolute;
-	top: 0;
-	right: 0;
+	color: transparentize($bg-color, 0.5);
+	padding-right: 0;
+
+	&:hover {
+		color: $bg-color;
+	}
 }
 
 #btn-settings-save {
@@ -206,7 +210,7 @@ button {
 	height: 100%;
 	background-color: $fg-color;
 	color: $bg-color;
-	z-index: 4;
+	z-index: 5;
 	transition: all 500ms ease-in-out;
 
 	/* Open styling */
@@ -215,7 +219,7 @@ button {
 	}
 
 	h1 {
-		margin-bottom: 2rem;
+		padding: 1rem 1rem 1rem 0;
 	}
 
 	.form-heading {
@@ -232,7 +236,15 @@ button {
 
 	.settings {
 		max-width: 600px;
-		margin: 10% auto 0 auto;
+		margin: 0 auto 0 auto;
+		padding: 5%;
+
+		& .settings-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 2rem;
+		}
 	}
 }
 
