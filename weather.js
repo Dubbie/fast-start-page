@@ -23,10 +23,19 @@ var weather = function () {
 			}
 
 			// Remove Loading stuff
-			if (descEl.classList.contains('loading')) {
-				descEl.classList.remove('loading');
-				tempEl.classList.remove('loading');
-			}
+			var removeEls = [descEl, tempEl];
+			var removeDelay = 0;
+
+			removeEls.forEach(el => {
+				setTimeout(() => {
+					if (el.classList.contains('loading')) {
+						el.classList.remove('loading');
+					}
+				}, removeDelay);
+
+				// Increment the delay for the effect
+				removeDelay += 100;
+			});
 		}
 
 		// Error with request

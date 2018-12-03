@@ -10,7 +10,7 @@
 
 <body>
 	<div class="wrapper">
-		<img src="./3.jpg" id="image" class="faded">
+		<img src="./pic.jpg" id="image" class="faded">
 		<div class="container">
 			<div class="col-left">
 				<h1 id="clock" class="loading">00:00</h1>
@@ -18,7 +18,7 @@
 				<p id="weather-temp" class="loading">0°C</p>
 			</div>
 			<div class="col-right">
-				<ul class="links-list">
+				<ul class="links-list loading">
 					<li class="heading">Work</li>
 					<li>
 						<a href="https://rendhu.atlassian.net/">JIRA</a>
@@ -33,7 +33,7 @@
 						<a href="https://paypal.com">PayPal</a>
 					</li>
 				</ul>
-				<ul class="links-list">
+				<ul class="links-list loading">
 					<li class="heading">KMS</li>
 					<li>
 						<a href="https://facebook.com">Facebook</a>
@@ -48,7 +48,7 @@
 						<a href="https://www.youtube.com/feed/subscriptions">YouTube</a>
 					</li>
 				</ul>
-				<ul class="links-list">
+				<ul class="links-list loading">
 					<li class="heading">PoE</li>
 					<li>
 						<a href="https://www.pathofexile.com/news">News</a>
@@ -70,12 +70,13 @@
 	<script>
 		var imgEl = document.getElementById('image');
 
-		window.onload = function () {
+		window.addEventListener('load', () => {
 			imgEl.classList.remove('faded');
-		}
+		});
 	</script>
 	<script src="./clock.js?v=1.0"></script>
-	<script src="./weather.js?v=1.0"></script>
+	<script src="./weather.js?v=1.1"></script>
+	<script src="./lists.js?v=1.0"></script>
 </body>
 
 </html>
