@@ -1,5 +1,8 @@
 var settings = function () {
-	let openClass = 'open';
+	// Other variables
+	const openClass = 'open';
+
+	// DOM elements
 	let page = document.getElementById('settings-page');
 	let form = document.getElementById('settings-form');
 	let btnOpen = document.getElementById('btn-settings');
@@ -11,6 +14,7 @@ var settings = function () {
 	let bankLink = document.getElementById('bank-link');
 	let jiraLink = document.getElementById('jira-link');
 
+	// Binding events
 	function setUpBinding() {
 		btnOpen.addEventListener('click', () => {
 			toggleSettings();
@@ -50,46 +54,50 @@ var settings = function () {
 	}
 
 	function validateForm() {
-		let err = [];
+		var errorHappened = false;
 
-		// Check if they are empty or not
-		if (bankNameInput.value.length < 1) {
-			bankNameInput.classList.add('has-error');
-			err.push('bankName');
-		}
-
-		if (bankUrlInput.value.length < 1) {
-			bankUrlInput.classList.add('has-error');
-			err.push('bankUrl');
-		}
-
-		if (jiraUrlInput.value.length < 1) {
-			jiraUrlInput.classList.add('has-error');
-			err.push('jiraUrl');
-		}
-
-		// Do the updating
-		if (!err.indexOf('bankName') != -1 && !err.indexOf('bankUrl') != -1) {
-			updateBankLink(bankNameInput.value, bankUrlInput.value);
-			bankNameInput.classList.remove('has-error');
-			bankUrlInput.classList.remove('has-error');
-		}
-
-		if (!err.indexOf('jiraUrl') != -1) {
+		// JIRA stuff
+		if (validateInputNotEmpty(jiraUrlInput)) {
 			updateJiraLink(jiraUrlInput.value);
-			jiraUrlInput.classList.remove('has-error');
+		} else {
+			errorHappened = true;
+		}
+
+		// Bank stuff
+		if (validateInputNotEmpty(bankNameInput) && validateInputNotEmpty(bankUrlInput)) {
+			updateBankLink(bankNameInput.value, bankUrlInput.value);
+		} else {
+			errorHappened = true;
 		}
 
 		// Save button
 		var oldText = btnSave.textContent;
 		btnSave.textContent = 'Saved!';
-
+		
 		setTimeout(() => {
 			btnSave.textContent = oldText;
 
 			// Toggle settings for now.
-			toggleSettings(false);
+			if (!errorHappened) {
+				toggleSettings(false);
+			}
 		}, 2000);
+	}
+
+	function validateInputNotEmpty(inputElement) {
+		let valid = false;
+
+		if (inputElement.value.length > 0) {
+			valid = true;
+		}
+
+		if (valid && inputElement.classList.contains('has-error')) {
+			inputElement.classList.remove('has-error');
+		} else if (!valid && !inputElement.classList.contains('has-error')) {
+			inputElement.classList.add('has-error');
+		}
+
+		return valid;
 	}
 
 	function loadData() {

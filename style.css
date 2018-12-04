@@ -26,24 +26,16 @@ button {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* min-width: 100vh; */
   color: #ffffff;
   overflow: hidden;
-}
-
-.container {
-  display: flex;
-  width: 80%;
-  z-index: 3;
 }
 
 #image {
   display: block;
   position: absolute;
   top: 50%;
-  left: 27.5%;
+  left: 27%;
   max-height: 66.66%;
-  max-width: 33.33%;
   transform: translateY(-45%);
   opacity: 1;
   z-index: 2;
@@ -52,6 +44,14 @@ button {
 #image.faded {
   opacity: 0;
   transform: translateY(-33.33%);
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  height: 100%;
+  padding-top: 20vh;
+  z-index: 3;
 }
 
 .col-left, .col-right {
@@ -68,6 +68,7 @@ button {
 
 .col-right {
   text-align: left;
+  background-color: #111111;
 }
 
 #clock {
@@ -108,16 +109,14 @@ button {
   font-size: 1.25rem;
   font-weight: 700;
 }
-.links-list li {
-  background-color: #111111;
-}
 .links-list li a {
   display: inline-block;
   text-decoration: none;
-  color: #cccccc;
+  font-weight: 700;
+  color: gray;
 }
 .links-list li a:hover {
-  color: #ffffff;
+  color: #bfbfbf;
 }
 
 #clock, #weather-description, #weather-temp {
@@ -187,7 +186,7 @@ button {
 
 /* Settings Page itself */
 #settings-page {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 100%;
   width: 100%;
@@ -195,6 +194,7 @@ button {
   background-color: #ffffff;
   color: #111111;
   z-index: 5;
+  overflow-y: scroll;
   transition: all 500ms ease-in-out;
   /* Open styling */
 }
@@ -252,6 +252,15 @@ button {
 }
 .form-group input.form-control.has-error {
   border-bottom-color: #ff3333;
+}
+.form-group input.form-control.has-error + .helper {
+  visibility: visible;
+}
+.form-group input.form-control + .helper {
+  visibility: hidden;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #ff3333;
 }
 
 /* Responsive stuff */
