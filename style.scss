@@ -193,11 +193,15 @@ button {
 }
 
 #btn-settings-save {
-	color: green;
-	border-bottom: 3px solid transparent;
+	color: $fg-color;
+	background-color: lighten(green, 5%);
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
 
 	&:hover {
-		border-color: green;
+		background-color: lighten(green, 10%);
+		box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 	}
 }
 
@@ -230,7 +234,7 @@ button {
 	hr {
 		width: 60%;
 		height: 3px;
-		background-color: darken($fg-color, 5%);
+		background-color: darken($fg-color, 10%);
 		margin: 2rem auto;
 		border: 0;
 	}
@@ -267,13 +271,12 @@ button {
 		width: 100%;
 		font-size: 1rem;
 		padding: 0.5rem;
-		background-color: darken($fg-color, 5%);
-		border: 0;
-		border-bottom: 3px solid darken($fg-color, 10%);
+		border: 3px solid darken($fg-color, 10%);
 		font-family: 'Montserrat', sans-serif;
 
 		&:active, &:focus {
 			outline: none;
+			border-color: lighten(green, 50%);
 		}
 
 		&.has-error {
