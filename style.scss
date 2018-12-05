@@ -37,17 +37,16 @@ button {
 #image {
 	display: block;
 	position: absolute;
-	top: 50%;
-	left: 27%;
+	top: 0;
+	right: 0;
 	max-height: 66.66%;
-	transform: translateY(-45%);
 	opacity: 1;
-	z-index: 2;
+	transform: translateY(0);
 	transition: all 1000ms ease-in-out;
 
 	&.faded {
 		opacity: 0;
-		transform: translateY(-33.33%);
+		transform: translateY(33.33%);
 	}
 }
 
@@ -68,6 +67,7 @@ button {
 }
 
 .col-left {
+	position: relative;
 	text-align: right;
 }
 
